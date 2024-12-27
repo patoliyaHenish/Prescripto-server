@@ -44,6 +44,22 @@ const appointmentSchema = new mongoose.Schema({
     isCompleted: {
         type: Boolean,
         default: false
+    },
+    missed: {
+        type: Boolean,
+        default: false
+    },
+    rescheduled: {
+        type: Boolean,
+        default: false
+    },
+    rescheduleDate: {
+        type: String,
+        default: null
+    },
+    rescheduleTime: {
+        type: String,
+        default: null
     }
 })
 

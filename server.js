@@ -6,6 +6,8 @@ import connnectCloudinary from './config/cloudinary.js';
 import adminRouter from './routes/adminRoute.js';
 import doctorRouter from './routes/doctorRoute.js';
 import userRouter from './routes/userRoute.js';
+import detectMissedAppointments from './middlewares/missedAppointment.js';
+import appointmentRoutes from './routes/appointmentRoutes.js';
 
 // app config
 const app = express();
@@ -16,6 +18,8 @@ connnectCloudinary();
 // middlewares
 app.use(express.json());
 app.use(cors());
+app.use(detectMissedAppointments);
+app.use('/api/appointments', appointmentRoutes);
 
 // api endpoints
 app.use('/api/admin', adminRouter) // localhost:4000/api/admin/add-doctor
